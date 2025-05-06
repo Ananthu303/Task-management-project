@@ -16,8 +16,10 @@ router = DefaultRouter()
 router.register(r"tasks", TaskViewSet, basename="tasks")
 
 urlpatterns = [
+    #AUTH
     path("login/", CustomLoginView.as_view(), name="login-dashboard"),
     path("logout/", logout_view, name="logout"),
+    #USERS-MANAGEMENT
     path("admin-dashboard/", AdminPanelView.as_view(), name="admin_dashboard"),
     path("manage-users/", ManageUsersListView.as_view(), name="manage-users"),
     path("manage-admins/", ManageAdminUsersListView.as_view(), name="manage-admins"),
@@ -26,6 +28,7 @@ urlpatterns = [
     path("update-admin/<int:pk>/", AdminUpdateView.as_view(), name="update-admin"),
     path("delete-user/<int:pk>/", UserDeleteView.as_view(), name="delete-user"),
     path("delete-admin/<int:pk>/", AdminDeleteView.as_view(), name="delete-admin"),
+    #TASKS MANAGEMENT
     path("create-tasks/", TaskCreateView.as_view(), name="create-tasks"),
     path("all-tasks/", AllTasksView.as_view(), name="all-tasks"),
     path("user-tasks/<int:pk>/", UserTasksView.as_view(), name="user-tasks"),
