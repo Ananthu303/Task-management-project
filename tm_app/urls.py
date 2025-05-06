@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import (TokenObtainPairView,
                                             TokenRefreshView)
 
-from task_management_project.tm_app.views.admin_dashboard import (AdminDeleteView, AdminPanelView,
+from tm_app.views.admin_dashboard import (AdminDeleteView, AdminPanelView,
                                 AdminUpdateView, CreateUserView,
                                 CustomLoginView, ManageAdminUsersListView,
                                 ManageUsersListView, UserDeleteView,
@@ -17,7 +17,7 @@ router.register(r"tasks", TaskViewSet, basename="tasks")
 
 urlpatterns = [
     #AUTH
-    path("login/", CustomLoginView.as_view(), name="login-dashboard"),
+    path("", CustomLoginView.as_view(), name="login-dashboard"),
     path("logout/", logout_view, name="logout"),
     #USERS-MANAGEMENT
     path("admin-dashboard/", AdminPanelView.as_view(), name="admin_dashboard"),
